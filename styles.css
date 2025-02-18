@@ -1,0 +1,125 @@
+h1 {
+    text-align: center;
+    font-family: system-ui;
+    font-style: initial;
+    text-overflow: clip;
+    
+}
+
+#divhead{
+    background-color: skyblue;
+    border-radius: 20px;
+}
+
+h2 {
+    background-color: aliceblue;
+    
+    
+}
+
+img {
+    border-radius: 30%;
+    margin-right: 10px;
+    float: left;
+    border-color: skyblue;
+    border-style: double;
+    width: auto;
+   
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    color: grey;
+    padding: 10px;
+    left: 0;
+    width: 100%;
+
+   
+}
+
+button:hover {
+    background-color: aqua ;
+    
+}
+
+button {
+    background-color: skyblue;
+    border-radius: 20%;
+    border-width: 2px;
+    border-style: groove ;
+}
+
+#divfooter {
+    background-color: aliceblue;
+    height: 150px;
+    text-align: center;
+   
+}
+ 
+.fa-facebook {
+    color: blue;
+    padding: 10px;
+    font-size: 40px;
+    
+
+}
+
+.fa-x{
+    color: black;
+    padding: 10px;
+    font-size: 40px;
+}
+
+.fa-linkedin {
+    color: dodgerblue;
+    padding: 10px;
+    font-size: 40px;
+}
+
+.fa-instagram {
+    color: deeppink;
+    padding: 10px;
+    font-size: 40px;
+}
+
+#cont{
+    text-align: center;
+
+}
+
+.fa-x:hover {
+    background-color: skyblue;
+}
+
+.fa-facebook:hover{
+    background-color: skyblue;
+}
+
+.fa-linkedin:hover{
+    background-color: skyblue;
+}
+
+.fa-instagram:hover{
+    background-color: skyblue;
+}
+
+body{
+    background-image: url(https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg?w=360);
+}
+
+#about{
+    text-align: center;
+}
+
+#di{
+    text-align: left;
+}
+
+.yo{
+    text-align: left;
+    font-family: system-ui;
+    font-size: 14px;
+    font-weight: 450;
+}
