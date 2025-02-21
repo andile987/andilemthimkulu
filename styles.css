@@ -66,10 +66,14 @@ button {
 
 }
 
-.fa-github {
+.fa-github{
     color: black;
     padding: 10px;
     font-size: 40px;
+}
+
+.fa-github:hover{
+    background-color: skyblue;
 }
 
 .fa-x{
