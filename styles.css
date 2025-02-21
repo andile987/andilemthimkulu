@@ -66,6 +66,12 @@ button {
 
 }
 
+.fa-github {
+    color: black;
+    padding: 10px;
+    font-size: 40px;
+}
+
 .fa-x{
     color: black;
     padding: 10px;
