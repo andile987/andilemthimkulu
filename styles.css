@@ -50,9 +50,9 @@ footer{
 
 button {
     background: linear-gradient(135deg, skyblue, deepskyblue); /* Gradient effect */
-    border-radius: 15px; /* More rounded edges for a smoother look */
+    border-radius: 10px; /* More rounded edges for a smoother look */
     border: 2px solid white; /* Clean and elegant border */
-    padding: 12px 24px; /* Better padding for a balanced size */
+    padding: 4px 24px; /* Better padding for a balanced size */
     font-size: 16px;
     font-weight: bold;
     color: white;
