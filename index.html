@@ -1,89 +1,538 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andile Mthimkulu | Digital Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --secondary: #1e40af;
+      --accent: #60a5fa;
+      --text: #1f2937;
+      --light: #f8fafc;
+      --gray: #e5e7eb;
+    }
     
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-    <head>
-       
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
 
+    /* Sidebar Styling */
+    .sidebar {
+      width: 300px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 2rem;
+      color: white;
+      position: fixed;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .profile {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      margin: 0 auto 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    .profile h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .profile p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .nav-menu {
+      margin: 2rem 0;
+    }
+
+    .nav-menu a {
+      display: flex;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      padding: 0.8rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-menu a i {
+      margin-right: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .nav-menu a:hover, .nav-menu a.active {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateX(5px);
+    }
+
+    .social-links {
+      margin-top: auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-links h3 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background-color: white;
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 300px;
+      padding: 3rem;
+      width: calc(100% - 300px);
+    }
+
+    section {
+      margin-bottom: 3rem;
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 2px solid var(--gray);
+      position: relative;
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 80px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+
+    /* About Section */
+    .about p {
+      margin-bottom: 1rem;
+    }
+
+    .skills {
+      margin-top: 2rem;
+    }
+
+    .skills h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .skill-tag {
+      background-color: var(--accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Projects Section */
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid var(--gray);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .project-info p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+      opacity: 0.8;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-links a:hover {
+      background-color: var(--secondary);
+    }
+
+    .project-links a i {
+      margin-right: 0.5rem;
+    }
+
+    /* Contact Section */
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      background-color: var(--gray);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      color: var(--primary);
+    }
+
+    .contact-text h4 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-text p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn i {
+      margin-right: 0.5rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .container {
+        flex-direction: column;
+      }
+      
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 1.5rem;
+      }
+      
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 2rem;
+      }
+      
+      .profile-img {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .nav-menu {
+        margin: 1rem 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .project-gallery {
+        grid-template-columns: 1fr;
+      }
+      
+      section {
+        padding: 1.5rem;
+      }
+      
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
 <body>
-    
-    <div id="divhead">
-        <h1>ANDILE MTHIMKULU</h1>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="yebo.jpg" alt="Andile Mthimkulu" class="profile-img">
+        <h1>Andile Mthimkulu</h1>
+        <p>Tech Enthusiast & Developer</p>
+      </div>
+      
+      <nav class="nav-menu">
+        <a href="#about" class="active">
+          <i class="fas fa-user"></i> About
+        </a>
+        <a href="#projects">
+          <i class="fas fa-code"></i> Projects
+        </a>
+        <a href="#contact">
+          <i class="fas fa-envelope"></i> Contact
+        </a>
+        <a href="cv.html">
+          <i class="fas fa-file-alt"></i> View CV
+        </a>
+      </nav>
+      
+      <div class="social-links">
+        <h3>Connect With Me</h3>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/andile-mthimkulu-747699214/" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://facebook.com" target="_blank" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://github.com" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>I am Andile Mthimkulu, a dynamic and multi-talented professional passionate about bridging the gap between humans and technology. I hold a BA in Humanities from Stellenbosch University, majoring in History and Informatics, and I am currently pursuing my Honours in Informatics.</p>
+        <p>My mission is to create technology solutions that are not only functional but also intuitive and human-centered. I believe in the power of technology to transform lives when designed with empathy and understanding.</p>
         
-    </div>
+        <div class="skills">
+          <h3>My Skills</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Web Development</span>
+            <span class="skill-tag">UX Design</span>
+            <span class="skill-tag">Data Science</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Research</span>
+            <span class="skill-tag">UI Design</span>
+            <span class="skill-tag">HTML/CSS</span>
+          </div>
+        </div>
+      </section>
 
-    <section id="about">
-        
-        <div id="divsec">
-            <h2>About Me <hr color="skyblue"></h2>
-            <img src="WhatsApp Image 2025-02-18 at 01.08.27_fb40dcd8.jpg" width="400" height="400">
-
-            <div id="semi">
-                <div class="yo">
-            <p>I am Andile Mthimkulu, a dynamic and multi-talented professional passionate about bridging the gap between humans and technology. With a Bachelor of Arts and Social Science degree in Humanities from Stellenbosch University, majoring in History and Informatics, I have developed a unique blend of analytical, technical, and research skills. Currently, I am pursuing my Honours in Informatics, aiming to graduate in December.
-
-            My expertise spans across multiple disciplines, including: <br> </p>
-            
-            <p>Coding – Crafting functional and innovative digital solutions. <br>
-            Data Science – Transforming raw data into meaningful insights. <br>
-            UX Design – Designing intuitive and user-centric digital experiences. <br>
-            Historical Research – Analyzing the past to understand the present and shape the future. <br> </p>
-            <p>By merging technology with human-centered thinking, I strive to create solutions that are both innovative and impactful. Whether it’s developing intelligent systems, analyzing complex datasets, or enhancing user experiences, my goal is to make technology more accessible and meaningful for people.
-            
-            I thrive on learning, problem-solving, and pushing boundaries—always looking for new ways to connect humanity and technology in meaningful way <hr color="skyblue"> </p>
-                </div>
+      <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-gallery">
+          <div class="project-card">
+            <img src="/images/project1.jpg" alt="Quotation Generator" class="project-img">
+            <div class="project-info">
+              <h3>Quotation Generator</h3>
+              <p>A responsive web application that enables businesses to create professional quotations quickly and easily with customizable templates.</p>
+              <div class="project-links">
+                <a href="#"><i class="fas fa-eye"></i> Live Demo</a>
+                <a href="#"><i class="fab fa-github"></i> Source Code</a>
+              </div>
             </div>
-            
+          </div>
+          
+          <div class="project-card">
+            <img src="/images/project2.jpg" alt="VIP Mobile Toilets" class="project-img">
+            <div class="project-info">
+              <h3>VIP Mobile Toilets</h3>
+              <p>A complete website solution for Thumamina Projects featuring service showcase, pricing calculator, and booking system.</p>
+              <div class="project-links">
+                <a href="#"><i class="fas fa-eye"></i> Live Demo</a>
+                <a href="#"><i class="fab fa-github"></i> Source Code</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <img src="https://via.placeholder.com/600x400" alt="Portfolio Website" class="project-img">
+            <div class="project-info">
+              <h3>Personal Portfolio</h3>
+              <p>This responsive portfolio website built with pure HTML/CSS showcases my projects and skills in a clean, modern design.</p>
+              <div class="project-links">
+                <a href="#"><i class="fas fa-eye"></i> Live Demo</a>
+                <a href="#"><i class="fab fa-github"></i> Source Code</a>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section id="conta">
-        <div id="di">
-            
-            <h2>Contact Details <hr color="skyblue"></h2>
-            <p><b>Phone:</b>+27732266171</p>
-            <p> <b>Email:</b> andilehlubimthimkulu@gmail.com</p>
-            <a href="mailto:andilehlubimthimkulu@gmail.com"> 
-            <button>Email me</button></a>
-            <a href="tel:+27732266171"><button>Call me</button> <hr color="skyblue"></a>
-            <a href="cv.html">
-                <button>View My CV</button>
-
-            
-            </a>
-           
-
-           
+      <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <div class="contact-text">
+              <h4>Phone</h4>
+              <p>+27 73 226 6171</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <p>andilehlubimthimkulu@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="contact-text">
+              <h4>Location</h4>
+              <p>Stellenbosch, South Africa</p>
+            </div>
+          </div>
         </div>
-    </section>
-
-    
-       
-            
-<section>
-<div id="divfooter">
-    <h2 id="cont">Connect with me</h2>
-
-    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-    
-    <a href="https://www.linkedin.com/in/andile-mthimkulu-747699214/" target="_blank"> <i class="fab fa-linkedin"></i></a>
-
-    
-   
-
-    
-
-    
-</div>
-</section>
-
+        
+        <div class="action-buttons">
+          <a href="mailto:andilehlubimthimkulu@gmail.com" class="btn">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </a>
+          <a href="tel:+27732266171" class="btn btn-outline">
+            <i class="fas fa-phone"></i> Call Me
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
+

@@ -6,7 +6,6 @@
     <title>Curriculum Vitae of Andile Mthimkulu</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Google Font -->
-    <title>Curriculum Vitae - Andile Mthimkulu</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -27,7 +26,7 @@
             padding: 20px;
             background-color: #fff;
             border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
         .header {
@@ -39,26 +38,24 @@
         .header h1 {
             font-size: 36px;
             margin: 0;
-            color: #2980b9; /* Maintained the strong blue color */
+            color: #2980b9;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 700; /* Bold */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), 0 0 10px rgba(41, 128, 185, 0.6); /* HD effect with blue glow */
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), 0 0 10px rgba(41, 128, 185, 0.6);
         }
 
         .header p {
             font-size: 18px;
-            color: #555; /* Subtle grey for subtitle */
+            color: #555;
             margin-top: 10px;
         }
 
-        /* Apply minimal shadow to headings except h1 */
-        h2{
-            color: #2980b9; /* Strong blue color for headings */
-            font-weight: 700; /* Bold */
+        h2 {
+            color: #2980b9;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-shadow: none; /* Removed shadow */
         }
 
         h2 {
@@ -77,6 +74,10 @@
 
         section {
             margin-bottom: 30px;
+            padding: 20px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
         }
 
         section ul {
@@ -91,29 +92,39 @@
         }
 
         section li strong {
-            color: #2980b9; /* Strong blue for titles */
+            color: #2980b9;
         }
 
-        /* Links Color */
         a {
             color: #2980b9;
             text-decoration: none;
         }
 
         a:hover {
-            color: #2c3e50; /* Darker blue for hover */
+            color: #2c3e50;
             text-decoration: underline;
         }
 
-        /* Card-like style for each section */
-        section {
-            padding: 20px;
-            background-color: #ecf0f1;
-            border-radius: 8px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
         }
 
-        /* Print-specific styles */
+        .button-group button {
+            background-color: #2980b9;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button-group button:hover {
+            background-color: #1c5984;
+        }
+
         @media print {
             body {
                 background-color: #fff;
@@ -126,7 +137,7 @@
                 margin: 0;
                 padding: 20px;
                 box-shadow: none;
-                font-size: 12px; /* Smaller font size for print */
+                font-size: 12px;
             }
 
             .header h1 {
@@ -150,9 +161,10 @@
                 font-size: 14px;
             }
 
-            
+            .button-group {
+                display: none; /* Hide buttons when printing */
+            }
 
-            /* Ensure everything fits within one page */
             html, body {
                 height: 100%;
                 width: 100%;
@@ -162,21 +174,16 @@
     </style>
 </head>
 <body>
-      <!-- Navigation Bar as Buttons -->
-      <!--
-      <nav class="navbar">
-        <button onclick="location.href='#career-goals'">Career Goals</button>
-        <button onclick="location.href='#personal-details'">Personal Details</button>
-        <button onclick="location.href='#education'">Education</button>
-        <button onclick="location.href='#skills'">Skills</button>
-    </nav> -->
 
-    <a href="index.html"><button>About Me</button></a>
+    <div class="button-group">
+        <button onclick="location.href='index.html'">About Me</button>
+        <button onclick="window.print()">Download CV as PDF</button>
+    </div>
+
     <div class="container">
         <header class="header">
             <h1>Andile Mthimkulu</h1>
             <p>Curriculum Vitae</p>
-          
         </header>
 
         <section id="career-goals">
@@ -187,25 +194,15 @@
         <section id="personal-details">
             <h2>Personal Details</h2>
             <ul>
-                <li><strong>Name:</strong> Andile Mthimkulu</li>
-               
-                
-                <li><strong>Age:</strong> 27</li>
-                <li><strong>Gender:</strong> Male</li>
                 <li><strong>Nationality:</strong> South African</li>
-                <li><strong>Race:</strong> African</li>
                 <li><strong>Languages:</strong> English, Zulu, Xhosa</li>
-               
                 <li><strong>Email:</strong> <a href="mailto:andilehlubimthimkulu@gmail.com">andilehlubimthimkulu@gmail.com</a></li>
-                <li><strong>Contact:</strong> 0732266171</li>
-                <li><strong>Home Address:</strong>South Africa</li>
-                <li><strong>Language:</strong> English</li>
+                <li><strong>Contact number:</strong> 0732266171</li>
             </ul>
         </section>
 
         <section id="education">
             <h2>Education & Qualifications</h2>
-        
             <h3>Undergraduate Qualification</h3>
             <ul>
                 <li><strong>Institution:</strong> Stellenbosch University</li>
@@ -213,16 +210,13 @@
                 <li><strong>Majors:</strong> Organisational Informatics, Socio Informatics, History</li>
                 <li><strong>Year:</strong> 2024</li>
             </ul>
-        
             <h3>Postgraduate Qualification</h3>
             <ul>
                 <li><strong>Institution:</strong> Stellenbosch University</li>
                 <li><strong>Degree:</strong> Bachelor of Informatics Honours</li>
                 <li><strong>Year:</strong> 2025 (In Progress)</li>
             </ul>
-        
         </section>
-        
 
         <section id="skills">
             <h2>Skills</h2>
@@ -249,5 +243,6 @@
             </ul>
         </section>
     </div>
+
 </body>
 </html>
